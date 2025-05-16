@@ -7,11 +7,11 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: "Home"
+      text: "Home"
       - href: about.qmd
-        text: "About Me"
+      text: "About Me"
         href: portfolio-project/project-portfolio.qmd
-        text: "Break Study Project"
+        text: "Break-Study-Project"
 format:
   html:
     theme: cosmo
