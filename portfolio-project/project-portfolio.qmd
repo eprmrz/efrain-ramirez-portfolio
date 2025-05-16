@@ -110,7 +110,6 @@ Here is a stacked bar plot with eight bars that each indicate the activity each 
 
 ```{r}
 #| label: viz-1
-#| fig-cap: "This is a caption for the first visualization"
 #| fig-alt: "This is an alternative text for the first visualization"
 #| fig-width: 6
 #| fig-height: 4
@@ -135,7 +134,6 @@ Here is a stacked bar plot with eight bars that each indicate the activity each 
 
 ```{r}
 #| label: viz-2
-#| fig-cap: "This is a caption for the second visualization"
 #| fig-alt: "This is an alternative text for the second visualization"
 #| fig-width: 6
 #| fig-height: 4
