@@ -1,9 +1,5 @@
 ---
-title: "About"
+title: "About Me"
 ---
 
-About this site
-
-```{r}
-1 + 1
-```
+I am a [Barry Goldwater](https://goldwaterscholarship.gov/) and [McNair Scholar](https://csumb.edu/uroc/mcnair-scholars-program/), first-generation Mexican-American transfer college student majoring in[ Psychology at California State University, Monterey Bay](https://csumb.edu/psychology/). I completed my associate's degree for transfer in Psychology at[ Sacramento City College](https://scc.losrios.edu/), where I completed courses in Introductory Psychology, Research Methods, and Statistics. As a child raised by Mexican immigrants, I became bilingual in Spanish as my first language and English as my second, while also developing a working proficiency in American Sign Language and French through high school and college. I also had leadership positions during the Covid-19 pandemic at one of the largest Ace Hardware stores in the state of California situated in the same town as one of the top research universities in the country, which inevitably exposed me to the world of research and sparked pursuit of a career in academia. Although I am proud of everything I have accomplished to date, I want to keep pursuing higher education so that I can do research in the field of Quantitative and Clinical Psychology and become a professor at a university. I am excited to be a student at CSUMB, as our[ Vision Statement](https://csumb.edu/about/founding-vision-statement/) values “serving the diverse people of California, especially the working class and historically undereducated and low-income populations.” That vision resonates with me because it represents me and inspires my ultimate goal of becoming a professor for underrepresented and underserved groups. It is for this reason that I aim to prepare the field of psychology by researching more representative treatments through quantitative methods and ensure a more equitable outcome for the U.S. Census Bureau projected population where 1 in 4 Americans will be of Latine descent by the year 2050. I will continue my work and studies later this fall in the doctoral Clinical Psychology program at the University of North Texas.

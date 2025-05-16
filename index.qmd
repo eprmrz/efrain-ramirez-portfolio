@@ -1,11 +1,8 @@
 ---
 title: "efrain-ramirez-portfolio"
+subtitle: "Psychology Undergraduate Student"
+about: 
+ template: jolla
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+Efrain Ramirez is an undergraduate student, Ronald E. McNair Scholar and Barry Goldwater Scholar in Psychology in the Department of Psychology at California State University, Monterey Bay, where he plans to graduate with a B.A. in Psychology this spring with a minor in Statistics and begin a PhD program in Clinical Psychology at University of North Texas this fall.
