@@ -3,15 +3,16 @@ project:
   output-dir: docs
 
 website:
-  title: "efrain-ramirez-portfolio"
+  title: "Efrain's Project Portfolio"
   navbar:
     left:
       - href: index.qmd
-      text: "Home"
+        text: "Home"
       - href: about.qmd
-      text: "About Me"
-        href: portfolio-project/project-portfolio.qmd
-        text: "Break-Study-Project"
+        text: "About Me"
+      - href: portfolio-project/project-portfolio.qmd
+        text: "Example Project"
+        
 format:
   html:
     theme: cosmo
@@ -20,3 +21,5 @@ format:
 
 editor: visual
 
+project:
+  type: website
