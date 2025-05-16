@@ -1,0 +1,25 @@
+"","category","name","value"
+"1","Bathroom","usual",73
+"2","Bathroom","outdoor",77
+"3","Bathroom","movement",70
+"4","ST_School","usual",44
+"5","ST_School","outdoor",53
+"6","ST_School","movement",52
+"7","ST_Socializing","usual",78
+"8","ST_Socializing","outdoor",84
+"9","ST_Socializing","movement",71
+"10","ST_Relax","usual",19
+"11","ST_Relax","outdoor",21
+"12","ST_Relax","movement",13
+"13","Went Outdoors","usual",31
+"14","Went Outdoors","outdoor",32
+"15","Went Outdoors","movement",25
+"16","Moved/Stretched","usual",39
+"17","Moved/Stretched","outdoor",32
+"18","Moved/Stretched","movement",17
+"19","Talked/Socialized","usual",59
+"20","Talked/Socialized","outdoor",65
+"21","Talked/Socialized","movement",56
+"22","Other","usual",3
+"23","Other","outdoor",3
+"24","Other","movement",5

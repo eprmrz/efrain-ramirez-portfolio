@@ -45,7 +45,7 @@ cbi24 <- read.csv("data/data_raw/PSY321 Class Break Intervention Study FA24_11.8
 ba_1 <- cbi24 %>% 
   clean_names() %>%
   group_by(break_condition) %>%
-  summarize( bathroom = sum(break_condition_3, na.rm = TRUE),
+  summarize(bathroom = sum(break_condition_3, na.rm = TRUE),
           screenSchool = sum(break_condition_5, na.rm = TRUE),
           screenSocial = sum(break_condition_6, na.rm = TRUE),
           screenRelax = sum(break_condition_7, na.rm = TRUE),
@@ -55,31 +55,58 @@ ba_1 <- cbi24 %>%
           other = sum(break_condition_8, na.rm = TRUE))
 
 ba_2 = transpose(ba_1) %>%
-  mutate( category = c( "junk", "Bathroom", "ST_School",
+  mutate(category = c( "junk", "Bathroom", "ST_School",
                         "ST_Socializing", "ST_Relax", "Went Outdoors",
-                        "Moved/Stretched", "Talked/Socialized", "Other" ) ) %>%
-  select( category, V1, V2, V3 ) %>%
-  filter( category != "junk" ) %>%
-  mutate( usual = V1, outdoor = V2, movement = V3 ) %>%
-  select( category, usual, outdoor, movement )
+                        "Moved/Stretched", "Talked/Socialized", "Other")) %>%
+  select(category, V1, V2, V3) %>%
+  filter(category != "junk") %>%
+  mutate(usual = V1, outdoor = V2, movement = V3) %>%
+  select(category, usual, outdoor, movement)
 
 ba_3 = ba_2  %>% 
-  pivot_longer( cols = c( "usual", "outdoor", "movement") ) 
+  pivot_longer(cols = c( "usual", "outdoor", "movement")) 
 
 #write.csv(ba_3, "C:/Users/efrai/Documents/STAT_210_Spring_2025/efrain-ramirez-portfolio/portfolio-project/data/data_clean/break_activity_spent.csv")
 
 
+ba_4 <- cbi24 %>%
+  clean_names() %>%
+  group_by(break_condition) %>%
+  summarize(bathroom = sum(usual_break_3, na.rm = TRUE),
+          screenSchool = sum(usual_break_5, na.rm = TRUE),
+          screenSocial = sum(usual_break_6, na.rm = TRUE),
+          screenRelax = sum(usual_break_7, na.rm = TRUE),
+          wentOutdoors = sum(usual_break_1, na.rm = TRUE),
+          stretch = sum(usual_break_2, na.rm = TRUE),
+          talked = sum(usual_break_4, na.rm = TRUE),
+          other = sum(usual_break_8, na.rm = TRUE))
+
+
+ba_5 = transpose(ba_4) %>%
+  mutate(category = c("junk", "Bathroom", "ST_School",
+                        "ST_Socializing", "ST_Relax", "Went Outdoors",
+                        "Moved/Stretched", "Talked/Socialized", "Other")) %>%
+  select(category, V1, V2, V3 ) %>%
+  filter(category != "junk" ) %>%
+  mutate(usual = V1, outdoor = V2, movement = V3) %>%
+  select(category, usual, outdoor, movement)
+
+ba_6 = ba_5  %>% 
+  pivot_longer(cols = c("usual", "outdoor", "movement")) 
+
+#write.csv(ba_6, "C:/Users/efrai/Documents/STAT_210_Spring_2025/efrain-ramirez-portfolio/portfolio-project/data/data_clean/break_usual.csv")
 ```
 
 ```{r}
 #| label: read-data
 #read in your clean data here
 break_activity_spent <- read_csv("data/data_clean/break_activity_spent.csv")
+break_usual <- read_csv("data/data_clean/break_usual.csv")
 ```
 
 ## Visualzation 1
 
-Here is a description of the first visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+Here is a stacked bar plot with eight bars that each indicate the activity each participant did during their break separated by group break condition. 
 
 ```{r}
 #| label: viz-1
@@ -104,7 +131,7 @@ theme_minimal() +
 
 ## Visualization 2
 
-Here is a description of the second visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+Here is a stacked bar plot with eight bars that each indicate the activity each participant usually does during their break separated by group break condition. 
 
 ```{r}
 #| label: viz-2
@@ -115,10 +142,13 @@ Here is a description of the second visualization. I want to describe what the v
 #| fig-align: center
 
 #create plot of cars data set
-ggplot(cars, aes(x = speed, y = dist)) +
-  geom_point() +
-  labs(title = "Cars Dataset", 
-       x = "Speed", 
-       y = "Distance") +
-  theme_minimal()
+break_usual %>%
+  ggplot(aes( x = category, y = value, fill = name  ) ) +
+  geom_col(binwidth = 1, color = "grey", alpha = 0.5, position = "stack") + coord_flip() +
+theme_minimal() +
+  labs(x = "Break Activity", 
+       y = "Number of Participants",
+       title = "How do you usually spend your break(select all that apply)?",
+       fill = "Break Condition") +
+  scale_fill_viridis_d()
 ```
