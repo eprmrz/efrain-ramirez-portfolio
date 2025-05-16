@@ -1,5 +1,5 @@
 ---
-title: "project-portfolio"
+title: "Break-Study-Project"
 format: html
 execute: 
   echo: false
@@ -13,20 +13,33 @@ embed-resources: true
 #| label: setup
 #| include: false
 library(tidyverse)
+library(haven)
+library(janitor)
 ```
 ## Data Description
 
-Here is a description of my data and a link to the souce embded here with references.
+The data for this study was collected by PSY 321 Fall 2024 students and utilized a randomized group design.
+
+The present study’s research question was: Does spending class break “as usual,” in nature, or engaged in movement impact affect and stress? 
+Method: The present study used a group-randomized design to assign twenty-one university classes into three conditions: (1) break as usual, (2) outdoor break, and (3) indoor movement break. From these classes, participants included 374 students who completed an anonymous pre-break survey, 10-minute break, and then post-break survey measuring stress levels and positive/negative affect (20-item Positive and Negative Affect Schedule). Facilitation of break conditions was standardized using slides and a script. 
+
+Results: We used a mixed within-between subjects ANOVA to assess the impact of the conditions on participants’ affect and stress scores, across time (pre- and post-intervention). There was a statistically significant increase in positive affect, decrease in negative affect, and decrease in stress when students across all break conditions (p < .001); effect sizes moderate to large (partial eta squared).
+
+Conclusions: Results indicated a significant and meaningful difference in stress and affect across conditions. Our hypothesis – that outdoor and movement breaks would be more beneficial than “break as usual” (i.e., often on screens) – was not supported by the data. Our research provides preliminary evidence for the use of unstructured breaks as a strategy for improving student wellness in the classroom.
 
 ## Data Cleaning
 
-Here I describe in plain speak what I did to clean the data. Do not show code or use technical terms. I want ot be able to read this and understand what I did.
+In order to assess the data, I needed to import my data from SPSS. I achieved that using the haven package and then I had to make sure that the variables were in the correct format. Adjustments needed to be made based on the names of variables and organization of observations in the dataset. I also made sure that that I did not have missing values in my observations. 
 
 ```{r}
 #| label: data-cleaning
 # this should be hidden from view and not seen in the website. It should include your data cleaning and you should export the clean data.
+CBI24 <- read_sav("data/PSY321 Class Break Intervention Study FA24_11.8.24_JL_DataClean3.sav")
 
+CBI24_2 <- read.csv("data/PSY321 Class Break Intervention Study FA24_11.8.24_JL_DataClean3_1.csv")
 
+CBI24_2 %>% 
+  clean_names()
 ```
 
 ```{r}
