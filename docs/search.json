@@ -4,13 +4,48 @@
     "href": "index.html",
     "title": "efrain-ramirez-portfolio",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Efrain Ramirez is an undergraduate student, Ronald E. McNair Scholar and Barry Goldwater Scholar in Psychology in the Department of Psychology at California State University, Monterey Bay, where he plans to graduate with a B.A. in Psychology this spring with a minor in Statistics and begin a PhD program in Clinical Psychology at University of North Texas this fall."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "I am a Barry Goldwater and McNair Scholar, first-generation Mexican-American transfer college student majoring inPsychology at California State University, Monterey Bay. I completed my associate’s degree for transfer in Psychology atSacramento City College, where I completed courses in Introductory Psychology, Research Methods, and Statistics. As a child raised by Mexican immigrants, I became bilingual in Spanish as my first language and English as my second, while also developing a working proficiency in American Sign Language and French through high school and college. I also had leadership positions during the Covid-19 pandemic at one of the largest Ace Hardware stores in the state of California situated in the same town as one of the top research universities in the country, which inevitably exposed me to the world of research and sparked pursuit of a career in academia. Although I am proud of everything I have accomplished to date, I want to keep pursuing higher education so that I can do research in the field of Quantitative and Clinical Psychology and become a professor at a university. I am excited to be a student at CSUMB, as ourVision Statement values “serving the diverse people of California, especially the working class and historically undereducated and low-income populations.” That vision resonates with me because it represents me and inspires my ultimate goal of becoming a professor for underrepresented and underserved groups. It is for this reason that I aim to prepare the field of psychology by researching more representative treatments through quantitative methods and ensure a more equitable outcome for the U.S. Census Bureau projected population where 1 in 4 Americans will be of Latine descent by the year 2050. I will continue my work and studies later this fall in the doctoral Clinical Psychology program at the University of North Texas."
+  },
+  {
+    "objectID": "portfolio-project/project-portfolio.html",
+    "href": "portfolio-project/project-portfolio.html",
+    "title": "Break-Study-Project",
+    "section": "",
+    "text": "The data for this study was collected by PSY 321 Fall 2024 students and utilized a randomized group design.\nThe present study’s research question was: Does spending class break “as usual,” in nature, or engaged in movement impact affect and stress? Method: The present study used a group-randomized design to assign twenty-one university classes into three conditions: (1) break as usual, (2) outdoor break, and (3) indoor movement break. From these classes, participants included 374 students who completed an anonymous pre-break survey, 10-minute break, and then post-break survey measuring stress levels and positive/negative affect (20-item Positive and Negative Affect Schedule). Facilitation of break conditions was standardized using slides and a script.\nResults: We used a mixed within-between subjects ANOVA to assess the impact of the conditions on participants’ affect and stress scores, across time (pre- and post-intervention). There was a statistically significant increase in positive affect, decrease in negative affect, and decrease in stress when students across all break conditions (p &lt; .001); effect sizes moderate to large (partial eta squared).\nConclusions: Results indicated a significant and meaningful difference in stress and affect across conditions. Our hypothesis – that outdoor and movement breaks would be more beneficial than “break as usual” (i.e., often on screens) – was not supported by the data. Our research provides preliminary evidence for the use of unstructured breaks as a strategy for improving student wellness in the classroom."
+  },
+  {
+    "objectID": "portfolio-project/project-portfolio.html#data-description",
+    "href": "portfolio-project/project-portfolio.html#data-description",
+    "title": "Break-Study-Project",
+    "section": "",
+    "text": "The data for this study was collected by PSY 321 Fall 2024 students and utilized a randomized group design.\nThe present study’s research question was: Does spending class break “as usual,” in nature, or engaged in movement impact affect and stress? Method: The present study used a group-randomized design to assign twenty-one university classes into three conditions: (1) break as usual, (2) outdoor break, and (3) indoor movement break. From these classes, participants included 374 students who completed an anonymous pre-break survey, 10-minute break, and then post-break survey measuring stress levels and positive/negative affect (20-item Positive and Negative Affect Schedule). Facilitation of break conditions was standardized using slides and a script.\nResults: We used a mixed within-between subjects ANOVA to assess the impact of the conditions on participants’ affect and stress scores, across time (pre- and post-intervention). There was a statistically significant increase in positive affect, decrease in negative affect, and decrease in stress when students across all break conditions (p &lt; .001); effect sizes moderate to large (partial eta squared).\nConclusions: Results indicated a significant and meaningful difference in stress and affect across conditions. Our hypothesis – that outdoor and movement breaks would be more beneficial than “break as usual” (i.e., often on screens) – was not supported by the data. Our research provides preliminary evidence for the use of unstructured breaks as a strategy for improving student wellness in the classroom."
+  },
+  {
+    "objectID": "portfolio-project/project-portfolio.html#data-cleaning",
+    "href": "portfolio-project/project-portfolio.html#data-cleaning",
+    "title": "Break-Study-Project",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\nIn order to assess the data, I needed to import my data from SPSS. I achieved that using the haven package and then I had to make sure that the variables were in the correct format. Adjustments needed to be made based on the names of variables and organization of observations in the dataset. I also made sure that that I did not have missing values in my observations. To create a fidelity check on what activity students spent their breaks on by break conditions, I had to group them by condition, and summarize the data to get an outcome of what each person did based on condition."
+  },
+  {
+    "objectID": "portfolio-project/project-portfolio.html#visualzation-1",
+    "href": "portfolio-project/project-portfolio.html#visualzation-1",
+    "title": "Break-Study-Project",
+    "section": "Visualzation 1",
+    "text": "Visualzation 1\nHere is a stacked bar plot with eight bars that each indicate the activity each participant did during their break separated by group break condition.\n\n\n\n\n\nThis is a caption for the first visualization"
+  },
+  {
+    "objectID": "portfolio-project/project-portfolio.html#visualization-2",
+    "href": "portfolio-project/project-portfolio.html#visualization-2",
+    "title": "Break-Study-Project",
+    "section": "Visualization 2",
+    "text": "Visualization 2\nHere is a stacked bar plot with eight bars that each indicate the activity each participant usually does during their break separated by group break condition.\n\n\n\n\n\nThis is a caption for the second visualization"
   }
 ]
