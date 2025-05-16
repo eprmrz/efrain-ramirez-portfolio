@@ -15,6 +15,7 @@ embed-resources: true
 library(tidyverse)
 library(haven)
 library(janitor)
+library(data.table)
 ```
 ## Data Description
 
@@ -29,24 +30,51 @@ Conclusions: Results indicated a significant and meaningful difference in stress
 
 ## Data Cleaning
 
-In order to assess the data, I needed to import my data from SPSS. I achieved that using the haven package and then I had to make sure that the variables were in the correct format. Adjustments needed to be made based on the names of variables and organization of observations in the dataset. I also made sure that that I did not have missing values in my observations. 
+In order to assess the data, I needed to import my data from SPSS. I achieved that using the haven package and then I had to make sure that the variables were in the correct format. Adjustments needed to be made based on the names of variables and organization of observations in the dataset. I also made sure that that I did not have missing values in my observations. To create a fidelity check on what activity students spent their breaks on by break conditions, I had to group them by condition, and summarize the data to get an outcome of what each person did based on condition.
 
 ```{r}
 #| label: data-cleaning
 # this should be hidden from view and not seen in the website. It should include your data cleaning and you should export the clean data.
-CBI24 <- read_sav("data/PSY321 Class Break Intervention Study FA24_11.8.24_JL_DataClean3.sav")
 
-CBI24_2 <- read.csv("data/PSY321 Class Break Intervention Study FA24_11.8.24_JL_DataClean3_1.csv")
+# How do you usually spend your break?
+#note this code is to demonstrate a fidelity check with original SPSS data
+break_study <- read_sav("data/data_raw/PSY321 Class Break Intervention Study FA24_11.8.24_JL_DataClean3.sav")
 
-CBI24_2 %>% 
-  clean_names()
+cbi24 <- read.csv("data/data_raw/PSY321 Class Break Intervention Study FA24_11.8.24_JL_DataClean3_1.csv")
+
+ba_1 <- cbi24 %>% 
+  clean_names() %>%
+  group_by(break_condition) %>%
+  summarize( bathroom = sum(break_condition_3, na.rm = TRUE),
+          screenSchool = sum(break_condition_5, na.rm = TRUE),
+          screenSocial = sum(break_condition_6, na.rm = TRUE),
+          screenRelax = sum(break_condition_7, na.rm = TRUE),
+          wentOutdoors = sum(break_condition_1, na.rm = TRUE),
+          stretch = sum(break_condition_2, na.rm = TRUE),
+          talked = sum(break_condition_4, na.rm = TRUE),
+          other = sum(break_condition_8, na.rm = TRUE))
+
+ba_2 = transpose(ba_1) %>%
+  mutate( category = c( "junk", "Bathroom", "ST_School",
+                        "ST_Socializing", "ST_Relax", "Went Outdoors",
+                        "Moved/Stretched", "Talked/Socialized", "Other" ) ) %>%
+  select( category, V1, V2, V3 ) %>%
+  filter( category != "junk" ) %>%
+  mutate( usual = V1, outdoor = V2, movement = V3 ) %>%
+  select( category, usual, outdoor, movement )
+
+ba_3 = ba_2  %>% 
+  pivot_longer( cols = c( "usual", "outdoor", "movement") ) 
+
+#write.csv(ba_3, "C:/Users/efrai/Documents/STAT_210_Spring_2025/efrain-ramirez-portfolio/portfolio-project/data/data_clean/break_activity_spent.csv")
+
+
 ```
 
 ```{r}
 #| label: read-data
 #read in your clean data here
-iris <- read_csv("data/clean-iris.csv")
-cares <- read_csv("data/clean-cars.csv")
+break_activity_spent <- read_csv("data/data_clean/break_activity_spent.csv")
 ```
 
 ## Visualzation 1
@@ -62,12 +90,16 @@ Here is a description of the first visualization. I want to describe what the vi
 #| fig-align: center
 
 #create plot of iris dataset
-ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
-  geom_point() +
-  labs(title = "Iris Dataset", 
-       x = "Sepal Length", 
-       y = "Sepal Width") +
-  theme_minimal()
+break_activity_spent %>%
+  ggplot( aes( x = category, y = value, fill = name  ) ) +
+  geom_col( binwidth = 1, color = "grey", alpha = 0.5, position = "stack" ) + coord_flip() +
+theme_minimal() +
+  labs(x = "Break Activity", 
+       y = "Number of Participants",
+       title = "What did you do during break today(select all that apply)?",
+       fill = "Break Condition") +
+  theme(axis.title.y = element_text(angle = 0, vjust = 0.5)) +
+  scale_fill_viridis_d()
 ```
 
 ## Visualization 2
